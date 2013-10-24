@@ -1,0 +1,37 @@
+
+DROP TABLE IF EXISTS `NonuniqueWordTable`;
+DROP TABLE IF EXISTS `SongWordMapTable`;
+DROP TABLE IF EXISTS `WordTable`;
+DROP TABLE IF EXISTS `SongTable`;
+
+
+
+CREATE TABLE IF NOT EXISTS `NonuniqueWordTable` (
+    id     INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+	name   varchar(20)
+) ENGINE=INNODB;
+
+
+CREATE TABLE IF NOT EXISTS `WordTable` (
+    id     INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+	name   varchar(20)
+) ENGINE=INNODB;
+
+
+
+
+CREATE TABLE IF NOT EXISTS `SongTable` (
+    id             INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+    name           varchar(255) ,
+    alternateName  varchar(500)
+) ENGINE=INNODB;
+
+
+CREATE TABLE IF NOT EXISTS `SongWordMapTable` (
+    id     INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+    songId INT UNSIGNED NOT NULL ,
+    wordId INT UNSIGNED NOT NULL,
+    count  INT UNSIGNED NOT NULL,
+    FOREIGN KEY ( songId ) REFERENCES SongTable (id),
+    FOREIGN KEY ( wordId ) REFERENCES WordTable (id) 
+) ENGINE=INNODB;
