@@ -16,12 +16,13 @@ import com.savio.waslyzer.dao.impl.WordDao;
 import com.savio.waslyzer.util.api.ISongName;
 
 
-public class SongAnalyzerResource implements ISongName {
+public final class SongAnalyzerResource implements ISongName {
 	
-	private HashMap<String, WordInfo> wordMap = new HashMap<String, WordInfo>();
-	private HashMap<String,WordInfo> addedWordMap = new HashMap<String, WordInfo>();
-	private HashMap<String, String> nonUniqueWordMap = new HashMap<String, String>();
-	private ArrayList<String> newNonUniqueWords = new ArrayList<String>();
+	private final HashMap<String, WordInfo> wordMap = new HashMap<String, WordInfo>();
+	private final HashMap<String,WordInfo> addedWordMap = new HashMap<String, WordInfo>();
+	private final HashMap<String, String> nonUniqueWordMap = new HashMap<String, String>();
+	private final ArrayList<String> newNonUniqueWords = new ArrayList<String>();
+	private final SongInfo songInfo = new SongInfo();
 	
 	
 	public SongAnalyzerResource() {
@@ -30,7 +31,7 @@ public class SongAnalyzerResource implements ISongName {
 	
 	
 	public static void main( String[] args ) throws Exception {
-		final File file = new File( SONG_FILE_PATH + BEAUTIFUL_ONE + EXTENSION );
+		final File file = new File( SONG_FILE_PATH + GLORIFIED + EXTENSION );
 		final FileReader fileReader = new FileReader( file );
 		final BufferedReader bufferedReader = new BufferedReader( fileReader );
 		final SongAnalyzerResource songAnalyzerResource = new SongAnalyzerResource();
@@ -50,11 +51,10 @@ public class SongAnalyzerResource implements ISongName {
 	}
 	
 	private void saveTheWords() throws Exception {
-		final SongInfo songInfo = new SongInfo();
 		getSongInfoFromUserInput(songInfo);
 		songInfo.setWordInfos( addedWordMap.values() );
 		songInfo.setNewNonuniqueWords( newNonUniqueWords );
-		new SongDao(1).put(songInfo);
+		new SongDao( 1 ).put(songInfo);
 	}
 	
 	private void getSongInfoFromUserInput( final SongInfo songInfo ) throws Exception {
@@ -73,11 +73,12 @@ public class SongAnalyzerResource implements ISongName {
 	
 	
 	private void tokenizeLine( final String line ) throws Exception {
-		final StringTokenizer tokenizer = new StringTokenizer( line , " ';,-.!:()\"\'" );
+		final StringTokenizer tokenizer = new StringTokenizer( line , " ';,-.!:()\"\'?" );
 		while( tokenizer.hasMoreTokens() ) {
 			final String word = tokenizer.nextToken().trim().toLowerCase();
 			// check String length
 			if( 3 < word.length() ) {
+				songInfo.incrementCount();
 				isWordUnique(word);
 			}
 		}

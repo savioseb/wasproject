@@ -84,6 +84,7 @@ public class SongDao extends AbstractDao implements ISongDao {
 		final PreparedStatement statement = connection.prepareStatement( INSERT_SONG_INFO );
 		statement.setString( 1 , songInfo.getName() );
 		statement.setString( 2 , songInfo.getAlternateName() );
+		statement.setInt( 3 , songInfo.getCount() );
 		statement.executeUpdate();
 		statement.close();
 		songInfo.setId( getLastId() );
