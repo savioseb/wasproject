@@ -23,7 +23,8 @@ CREATE TABLE IF NOT EXISTS `WordTable` (
 CREATE TABLE IF NOT EXISTS `SongTable` (
     id             INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY ,
     name           varchar(255) ,
-    alternateName  varchar(500)
+    alternateName  varchar(500) ,
+    count          INT UNSIGNED NOT NULL 
 ) ENGINE=INNODB;
 
 
