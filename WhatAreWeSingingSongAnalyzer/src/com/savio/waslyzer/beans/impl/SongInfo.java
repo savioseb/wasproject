@@ -3,11 +3,12 @@ package com.savio.waslyzer.beans.impl;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class SongInfo extends AbstractNameInfo {
+public final class SongInfo extends AbstractNameInfo {
 	
 	private String alternateName;
 	private Collection<WordInfo> wordInfos;
 	private transient ArrayList<String> newNonuniqueWords;
+	private int count;
 
 	public String getAlternateName() {
 		return alternateName;
@@ -31,6 +32,18 @@ public class SongInfo extends AbstractNameInfo {
 
 	public void setNewNonuniqueWords(ArrayList<String> newNonuniqueWords) {
 		this.newNonuniqueWords = newNonuniqueWords;
+	}
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
+	}
+	
+	public void incrementCount() {
+		count++;
 	}
 	
 	

@@ -20,5 +20,22 @@ public interface ISongName {
 	public static final String AWESOME_IS_THE_LORD_MOST_HIGH = "Awesome Is The Lord Most High";
 	public static final String BE_THOU_MY_VISION = "Be Thou My Vision";
 	public static final String BEAUTIFUL_ONE = "BeautifulOne";
+	public static final String BECAUSE_OF_YOUR_LOVE = "Because of Your Love";
+	public static final String BEFORE_THE_THRONE = "Before The Throne";
+	public static final String BLESSED_BE_YOUR_NAME = "Blessed be Your Name";
+	public static final String COME_AND_SEE = "Come and See";
+	public static final String COME_HOLY_SPIRIT = "Come Holy Spirit";
+	public static final String COME_THOU_FOUNT = "COME THOU FOUNT";
+	public static final String CONSUMING_FIRE = "Consuming Fire";
+	public static final String CORNERSTONE = "Cornerstone";
+	public static final String CROWN_HIM = "CROWN HIM";
+	public static final String DANCING_GENERATION = "Dancing Generation";
+	public static final String EVERLASTING_GOD = "Everlasting God";
+	public static final String EVERYTHING = "Everything";
+	public static final String FOR_THE_CROSS = "For the Cross";
+	public static final String FOR_YOU_ALONE = "For You Alone";
+	public static final String FOREVER = "Forever";
+	public static final String GIVE_US_CLEAN_HANDS = "Give Us Clean Hands";
+	public static final String GLORIFIED = "Glorified";
 
 }
